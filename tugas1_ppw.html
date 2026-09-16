@@ -1,0 +1,1802 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance &#8212; Pencarian dan Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas1_ppw';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tugas 2 - Kata Unik pada Dataset" href="tugas2_ppw.html" />
+    <link rel="prev" title="SELAMAT DATANG DI MATA KULIAH PENCARIAN DAN PENAMBANGAN WEB" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/foto silvi.jpg" class="logo__image only-light" alt="Pencarian dan Penambangan Web - Home"/>
+    <script>document.write(`<img src="_static/foto silvi.jpg" class="logo__image only-dark" alt="Pencarian dan Penambangan Web - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    SELAMAT DATANG DI MATA KULIAH PENCARIAN DAN PENAMBANGAN WEB
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="tugas2_ppw.html"><strong>Tugas 2 - Kata Unik pada Dataset</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas1_ppw.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/tugas1_ppw.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-library"><strong>Instalasi Library</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping">Pada tahap pertama dilakukan instalasi beberapa library Python yang dibutuhkan untuk proses Web Scraping. Library yang digunakan yaitu <code class="docutils literal notranslate"><span class="pre">requests</span></code> untuk mengambil halaman web, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> untuk membaca struktur HTML, <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> untuk mengambil isi utama artikel, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk mengolah data, <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> untuk menyimpan data ke dalam file Excel, dan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> untuk menampilkan progress proses scraping.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-dan-konfigurasi"><strong>Import Library dan Konfigurasi</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-import-library-yang-akan-digunakan-dalam-proses-web-scraping-library-re-digunakan-untuk-melakukan-manipulasi-teks-time-dan-random-digunakan-untuk-memberikan-jeda-secara-acak-selama-proses-scraping-sedangkan-requests-digunakan-untuk-mengambil-halaman-web-library-pandas-digunakan-untuk-mengolah-data-dan-trafilatura-digunakan-untuk-mengambil-isi-utama-artikel-selain-itu-beautifulsoup-digunakan-untuk-membaca-struktur-html-sedangkan-beberapa-fungsi-dari-urllib-parse-digunakan-untuk-mengolah-url-library-tqdm-digunakan-untuk-menampilkan-progress-proses-scraping-pada-bagian-konfigurasi-juga-dibuat-user-agent-dan-requests-session-yang-digunakan-untuk-mengatur-request-ke-halaman-web-variabel-kategori-digunakan-untuk-menyimpan-alamat-halaman-indeks-dan-domain-berita-yang-akan-digunakan-yaitu-kategori-sport-dan-finance">Pada tahap ini dilakukan import library yang akan digunakan dalam proses Web Scraping. Library <code class="docutils literal notranslate"><span class="pre">re</span></code> digunakan untuk melakukan manipulasi teks, <code class="docutils literal notranslate"><span class="pre">time</span></code> dan <code class="docutils literal notranslate"><span class="pre">random</span></code> digunakan untuk memberikan jeda secara acak selama proses scraping, sedangkan <code class="docutils literal notranslate"><span class="pre">requests</span></code> digunakan untuk mengambil halaman web. Library <code class="docutils literal notranslate"><span class="pre">pandas</span></code> digunakan untuk mengolah data dan <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> digunakan untuk mengambil isi utama artikel. Selain itu, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> digunakan untuk membaca struktur HTML, sedangkan beberapa fungsi dari <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code> digunakan untuk mengolah URL. Library <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> digunakan untuk menampilkan progress proses scraping. Pada bagian konfigurasi juga dibuat <code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> dan <code class="docutils literal notranslate"><span class="pre">requests.Session()</span></code> yang digunakan untuk mengatur request ke halaman web. Variabel <code class="docutils literal notranslate"><span class="pre">kategori</span></code> digunakan untuk menyimpan alamat halaman indeks dan domain berita yang akan digunakan, yaitu kategori sport dan finance.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-url"><strong>Normalisasi URL</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-normalize-url-digunakan-untuk-membersihkan-url-yang-diperoleh-dari-halaman-web-pada-proses-ini-query-parameter-dan-fragment-pada-url-dihapus-sehingga-url-menjadi-lebih-sederhana-dan-konsisten-fungsi-urlsplit-digunakan-untuk-memisahkan-bagian-bagian-url-sedangkan-urlunsplit-digunakan-untuk-menyusun-kembali-url-yang-telah-dibersihkan-normalisasi-ini-juga-membantu-menghindari-adanya-link-artikel-yang-sama-tetapi-memiliki-url-yang-berbeda-karena-adanya-parameter-tambahan">Fungsi <code class="docutils literal notranslate"><span class="pre">normalize_url()</span></code> digunakan untuk membersihkan URL yang diperoleh dari halaman web. Pada proses ini query parameter dan fragment pada URL dihapus sehingga URL menjadi lebih sederhana dan konsisten. Fungsi <code class="docutils literal notranslate"><span class="pre">urlsplit()</span></code> digunakan untuk memisahkan bagian-bagian URL, sedangkan <code class="docutils literal notranslate"><span class="pre">urlunsplit()</span></code> digunakan untuk menyusun kembali URL yang telah dibersihkan. Normalisasi ini juga membantu menghindari adanya link artikel yang sama tetapi memiliki URL yang berbeda karena adanya parameter tambahan.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-link-berita"><strong>Mengambil Link Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-ambil-link-berita-digunakan-untuk-mengambil-link-artikel-dari-halaman-indeks-detik-berdasarkan-kategori-berita-program-membaca-halaman-indeks-secara-bertahap-menggunakan-nomor-halaman-kemudian-memeriksa-link-yang-ditemukan-untuk-memastikan-bahwa-link-tersebut-berasal-dari-domain-yang-sesuai-dan-memiliki-pola-url-artikel-detik-link-yang-sudah-ditemukan-disimpan-menggunakan-set-untuk-menghindari-duplikasi-parameter-target-digunakan-untuk-menentukan-jumlah-link-yang-ingin-dikumpulkan-sedangkan-max-page-digunakan-untuk-membatasi-jumlah-halaman-yang-diperiksa-program-juga-memberikan-jeda-secara-acak-antara-satu-sampai-dua-detik-pada-setiap-halaman-agar-request-tidak-dilakukan-secara-terus-menerus-tanpa-jeda">Fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code> digunakan untuk mengambil link artikel dari halaman indeks Detik berdasarkan kategori berita. Program membaca halaman indeks secara bertahap menggunakan nomor halaman, kemudian memeriksa link yang ditemukan untuk memastikan bahwa link tersebut berasal dari domain yang sesuai dan memiliki pola URL artikel Detik. Link yang sudah ditemukan disimpan menggunakan <code class="docutils literal notranslate"><span class="pre">set</span></code> untuk menghindari duplikasi. Parameter <code class="docutils literal notranslate"><span class="pre">target</span></code> digunakan untuk menentukan jumlah link yang ingin dikumpulkan, sedangkan <code class="docutils literal notranslate"><span class="pre">max_page</span></code> digunakan untuk membatasi jumlah halaman yang diperiksa. Program juga memberikan jeda secara acak antara satu sampai dua detik pada setiap halaman agar request tidak dilakukan secara terus-menerus tanpa jeda.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-link-berita-sport"><strong>Pengumpulan Link Berita Sport</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-sport-menggunakan-fungsi-ambil-link-berita-target-awal-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-beberapa-halaman-indeks-dan-mengumpulkan-link-artikel-yang-memenuhi-kriteria-hasil-link-yang-diperoleh-kemudian-disimpan-pada-variabel-link-sport-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-157-kandidat-link-berita-sport-yang-selanjutnya-digunakan-sebagai-sumber-untuk-mengambil-isi-artikel">Pada tahap ini dilakukan pengumpulan kandidat link berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code>. Target awal yang ditentukan adalah sebanyak 150 link berita. Program akan membaca beberapa halaman indeks dan mengumpulkan link artikel yang memenuhi kriteria. Hasil link yang diperoleh kemudian disimpan pada variabel <code class="docutils literal notranslate"><span class="pre">link_sport</span></code>. Berdasarkan hasil eksekusi, diperoleh sebanyak <strong>157 kandidat link berita sport</strong> yang selanjutnya digunakan sebagai sumber untuk mengambil isi artikel.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-kandidat-link-berita-finance"><strong>Pengumpulan Kandidat Link Berita Finance</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-finance-menggunakan-fungsi-ambil-link-berita-target-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-halaman-indeks-dan-mengambil-link-artikel-yang-sesuai-dengan-domain-serta-pola-url-yang-telah-ditentukan-hasil-pengumpulan-link-kemudian-disimpan-pada-variabel-link-finance-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-154-kandidat-link-berita-finance-yang-akan-digunakan-pada-proses-scraping-isi-artikel">Pada tahap ini dilakukan pengumpulan kandidat link berita dari kategori <code class="docutils literal notranslate"><span class="pre">finance</span></code> menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code>. Target yang ditentukan adalah sebanyak 150 link berita. Program akan membaca halaman indeks dan mengambil link artikel yang sesuai dengan domain serta pola URL yang telah ditentukan. Hasil pengumpulan link kemudian disimpan pada variabel <code class="docutils literal notranslate"><span class="pre">link_finance</span></code>. Berdasarkan hasil eksekusi, diperoleh sebanyak <strong>154 kandidat link berita finance</strong> yang akan digunakan pada proses scraping isi artikel.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembersihan-teks-berita"><strong>Pembersihan Teks Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-bersihkan-teks-digunakan-untuk-membersihkan-isi-berita-yang-diperoleh-dari-halaman-web-beberapa-teks-yang-tidak-termasuk-isi-utama-berita-seperti-advertisement-dan-scroll-to-continue-with-content-dihapus-menggunakan-regular-expression-selain-itu-spasi-atau-whitespace-yang-berlebihan-diubah-menjadi-satu-spasi-agar-teks-menjadi-lebih-rapi-jika-teks-yang-diperoleh-bernilai-none-fungsi-akan-mengembalikan-none-setelah-seluruh-proses-selesai-teks-dirapikan-menggunakan-strip-untuk-menghilangkan-spasi-pada-bagian-awal-dan-akhir">Fungsi <code class="docutils literal notranslate"><span class="pre">bersihkan_teks()</span></code> digunakan untuk membersihkan isi berita yang diperoleh dari halaman web. Beberapa teks yang tidak termasuk isi utama berita, seperti <code class="docutils literal notranslate"><span class="pre">ADVERTISEMENT</span></code> dan <code class="docutils literal notranslate"><span class="pre">SCROLL</span> <span class="pre">TO</span> <span class="pre">CONTINUE</span> <span class="pre">WITH</span> <span class="pre">CONTENT</span></code>, dihapus menggunakan regular expression. Selain itu, spasi atau whitespace yang berlebihan diubah menjadi satu spasi agar teks menjadi lebih rapi. Jika teks yang diperoleh bernilai <code class="docutils literal notranslate"><span class="pre">None</span></code>, fungsi akan mengembalikan <code class="docutils literal notranslate"><span class="pre">None</span></code>. Setelah seluruh proses selesai, teks dirapikan menggunakan <code class="docutils literal notranslate"><span class="pre">strip()</span></code> untuk menghilangkan spasi pada bagian awal dan akhir.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-isi-berita"><strong>Ekstraksi Isi Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-ambil-isi-berita-digunakan-untuk-mengambil-isi-utama-artikel-berdasarkan-url-yang-telah-dikumpulkan-program-melakukan-request-ke-halaman-artikel-menggunakan-session-get-kemudian-memeriksa-keberhasilan-request-menggunakan-raise-for-status-setelah-halaman-berhasil-diperoleh-trafilatura-extract-digunakan-untuk-mengekstrak-teks-utama-artikel-dengan-tidak-menyertakan-komentar-dan-tabel-hasil-ekstraksi-kemudian-dibersihkan-menggunakan-fungsi-bersihkan-teks-artikel-hanya-diterima-apabila-memiliki-isi-dan-panjang-teks-minimal-300-karakter-jika-terjadi-kesalahan-saat-proses-pengambilan-artikel-program-menampilkan-url-dan-pesan-error-kemudian-mengembalikan-nilai-none">Fungsi <code class="docutils literal notranslate"><span class="pre">ambil_isi_berita()</span></code> digunakan untuk mengambil isi utama artikel berdasarkan URL yang telah dikumpulkan. Program melakukan request ke halaman artikel menggunakan <code class="docutils literal notranslate"><span class="pre">session.get()</span></code>, kemudian memeriksa keberhasilan request menggunakan <code class="docutils literal notranslate"><span class="pre">raise_for_status()</span></code>. Setelah halaman berhasil diperoleh, <code class="docutils literal notranslate"><span class="pre">trafilatura.extract()</span></code> digunakan untuk mengekstrak teks utama artikel dengan tidak menyertakan komentar dan tabel. Hasil ekstraksi kemudian dibersihkan menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">bersihkan_teks()</span></code>. Artikel hanya diterima apabila memiliki isi dan panjang teks minimal 300 karakter. Jika terjadi kesalahan saat proses pengambilan artikel, program menampilkan URL dan pesan error kemudian mengembalikan nilai <code class="docutils literal notranslate"><span class="pre">None</span></code>.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-scraping-berdasarkan-kategori"><strong>Proses Scraping Berdasarkan Kategori</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-scraping-kategori-digunakan-untuk-mengambil-isi-berita-dari-kumpulan-link-berdasarkan-kategori-tertentu-setiap-url-diproses-menggunakan-fungsi-ambil-isi-berita-jika-isi-artikel-berhasil-diperoleh-data-disimpan-dalam-bentuk-dictionary-yang-terdiri-dari-isi-berita-dan-label-parameter-target-digunakan-untuk-menentukan-jumlah-artikel-yang-ingin-dikumpulkan-progress-proses-ditampilkan-menggunakan-tqdm-sedangkan-delay-acak-diberikan-setelah-setiap-proses-pengambilan-artikel-agar-request-tidak-dilakukan-terlalu-cepat">Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_kategori()</span></code> digunakan untuk mengambil isi berita dari kumpulan link berdasarkan kategori tertentu. Setiap URL diproses menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_isi_berita()</span></code>. Jika isi artikel berhasil diperoleh, data disimpan dalam bentuk dictionary yang terdiri dari <code class="docutils literal notranslate"><span class="pre">isi_berita</span></code> dan <code class="docutils literal notranslate"><span class="pre">label</span></code>. Parameter <code class="docutils literal notranslate"><span class="pre">target</span></code> digunakan untuk menentukan jumlah artikel yang ingin dikumpulkan. Progress proses ditampilkan menggunakan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code>, sedangkan delay acak diberikan setelah setiap proses pengambilan artikel agar request tidak dilakukan terlalu cepat.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-100-berita-sport"><strong>Scraping 100 Berita Sport</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-proses-scraping-isi-artikel-dari-kandidat-link-kategori-sport-dan-finance-fungsi-scraping-kategori-digunakan-dengan-target-sebanyak-100-artikel-program-akan-mengambil-isi-berita-dari-link-yang-tersedia-dan-hanya-memasukkan-artikel-yang-berhasil-diekstraksi-sesuai-kriteria-yang-telah-ditentukan-hasil-proses-kemudian-disimpan-dalam-variabel-data-sport-dan-data-finance-berdasarkan-hasil-eksekusi-berhasil-diperoleh-100-berita-sport-dan-100-berita-finance">Pada tahap ini dilakukan proses scraping isi artikel dari kandidat link kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code>. Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_kategori()</span></code> digunakan dengan target sebanyak 100 artikel. Program akan mengambil isi berita dari link yang tersedia dan hanya memasukkan artikel yang berhasil diekstraksi sesuai kriteria yang telah ditentukan. Hasil proses kemudian disimpan dalam variabel <code class="docutils literal notranslate"><span class="pre">data_sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">data_finance</span></code>. Berdasarkan hasil eksekusi, berhasil diperoleh <strong>100 berita sport</strong> dan <strong>100 berita finance</strong>.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-data-berita"><strong>Menggabungkan Data Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-data-berita-dari-kategori-sport-dan-finance-digabungkan-menjadi-satu-data-menggunakan-operator-data-dari-kedua-kategori-yang-sebelumnya-disimpan-dalam-variabel-berbeda-digabungkan-ke-dalam-variabel-data-semua-dengan-demikian-seluruh-hasil-scraping-dari-kedua-kategori-dapat-diproses-sebagai-satu-dataset">Pada tahap ini data berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code> digabungkan menjadi satu data menggunakan operator <code class="docutils literal notranslate"><span class="pre">+</span></code>. Data dari kedua kategori yang sebelumnya disimpan dalam variabel berbeda digabungkan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">data_semua</span></code>. Dengan demikian, seluruh hasil scraping dari kedua kategori dapat diproses sebagai satu dataset.</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-1-web-scraping-berita-detik-com-untuk-pengumpulan-dataset-kategori-sport-dan-finance">
+<h1><strong>Tugas 1 – Web Scraping Berita <a class="reference external" href="http://Detik.com">Detik.com</a> untuk Pengumpulan Dataset Kategori Sport dan Finance</strong><a class="headerlink" href="#tugas-1-web-scraping-berita-detik-com-untuk-pengumpulan-dataset-kategori-sport-dan-finance" title="Permalink to this heading">#</a></h1>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="instalasi-library">
+<h1><strong>Instalasi Library</strong><a class="headerlink" href="#instalasi-library" title="Permalink to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping">
+<h2>Pada tahap pertama dilakukan instalasi beberapa library Python yang dibutuhkan untuk proses Web Scraping. Library yang digunakan yaitu <code class="docutils literal notranslate"><span class="pre">requests</span></code> untuk mengambil halaman web, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> untuk membaca struktur HTML, <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> untuk mengambil isi utama artikel, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk mengolah data, <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> untuk menyimpan data ke dalam file Excel, dan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> untuk menampilkan progress proses scraping.<a class="headerlink" href="#pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Jika belum install library, jalankan sekali saja</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="w"> </span>beautifulsoup4<span class="w"> </span>trafilatura<span class="w"> </span>pandas<span class="w"> </span>openpyxl<span class="w"> </span>tqdm
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests in /home/codespace/.local/lib/python3.14/site-packages (2.34.2)
+Requirement already satisfied: beautifulsoup4 in /home/codespace/.local/lib/python3.14/site-packages (4.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting trafilatura
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading trafilatura-2.2.0-py3-none-any.whl.metadata (13 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas-3.0.5-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openpyxl
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tqdm
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (3.5.1)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (3.19)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (2.7.0)
+Requirement already satisfied: certifi&gt;=2023.5.7 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (2026.7.22)
+Requirement already satisfied: soupsieve&gt;=1.6.1 in /home/codespace/.local/lib/python3.14/site-packages (from beautifulsoup4) (2.9.2)
+Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.local/lib/python3.14/site-packages (from beautifulsoup4) (4.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting courlan&gt;=1.4.0 (from trafilatura)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading courlan-1.4.0-py3-none-any.whl.metadata (18 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting htmldate&gt;=1.10.0 (from trafilatura)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading htmldate-1.10.0-py3-none-any.whl.metadata (9.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting justext&gt;=3.0.2 (from trafilatura)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading justext-3.0.2-py2.py3-none-any.whl.metadata (7.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lxml&gt;=6.1.1 (from trafilatura)
+  Downloading lxml-6.1.3-cp314-cp314-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy&gt;=2.3.3 (from pandas)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.14/site-packages (from pandas) (2.9.0.post0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting et-xmlfile (from openpyxl)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Requirement already satisfied: babel&gt;=2.16.0 in /home/codespace/.local/lib/python3.14/site-packages (from courlan&gt;=1.4.0-&gt;trafilatura) (2.18.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tld&gt;=0.13 (from courlan&gt;=1.4.0-&gt;trafilatura)
+  Downloading tld-0.13.2-py2.py3-none-any.whl.metadata (11 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting dateparser&gt;=1.1.2 (from htmldate&gt;=1.10.0-&gt;trafilatura)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading dateparser-1.4.3-py3-none-any.whl.metadata (25 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pytz&gt;=2024.2 (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura)
+  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting regex&gt;=2024.9.11 (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading regex-2026.9.10-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tzlocal&gt;=0.2 (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura)
+  Downloading tzlocal-5.4.4-py3-none-any.whl.metadata (7.7 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lxml_html_clean (from lxml[html_clean]&gt;=4.4.2-&gt;justext&gt;=3.0.2-&gt;trafilatura)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading lxml_html_clean-0.4.5-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.14/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading trafilatura-2.2.0-py3-none-any.whl (151 kB)
+Downloading pandas-3.0.5-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.0 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/11.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺</span> <span class=" -Color -Color-Green">10.7/11.0 MB</span> <span class=" -Color -Color-Red">200.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.0/11.0 MB</span> <span class=" -Color -Color-Red">41.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading courlan-1.4.0-py3-none-any.whl (34 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading htmldate-1.10.0-py3-none-any.whl (31 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading dateparser-1.4.3-py3-none-any.whl (322 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading justext-3.0.2-py2.py3-none-any.whl (837 kB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/837.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">837.9/837.9 kB</span> <span class=" -Color -Color-Red">26.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading lxml-6.1.3-cp314-cp314-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/5.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.2/5.2 MB</span> <span class=" -Color -Color-Red">31.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/16.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">16.5/16.7 MB</span> <span class=" -Color -Color-Red">276.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">16.5/16.7 MB</span> <span class=" -Color -Color-Red">276.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.7/16.7 MB</span> <span class=" -Color -Color-Red">36.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading regex-2026.9.10-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (803 kB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/803.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">803.7/803.7 kB</span> <span class=" -Color -Color-Red">22.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+?25hDownloading tld-0.13.2-py2.py3-none-any.whl (296 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading tzlocal-5.4.4-py3-none-any.whl (18 kB)
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading lxml_html_clean-0.4.5-py3-none-any.whl (14 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pytz, tzlocal, tqdm, tld, regex, numpy, lxml, et-xmlfile, pandas, openpyxl, lxml_html_clean, dateparser, courlan, htmldate, justext, trafilatura
+?25l
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 2/16</span> [tqdm]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 4/16</span> [regex]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 6/16</span> [lxml]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/16</span> [openpyxl]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/16</span> [openpyxl]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11/16</span> [dateparser]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11/16</span> [dateparser]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━</span> <span class=" -Color -Color-Green">12/16</span> [courlan]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━</span> <span class=" -Color -Color-Green">15/16</span> [trafilatura]
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16/16</span> [trafilatura]
+?25h
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed courlan-1.4.0 dateparser-1.4.3 et-xmlfile-2.0.0 htmldate-1.10.0 justext-3.0.2 lxml-6.1.3 lxml_html_clean-0.4.5 numpy-2.5.3 openpyxl-3.1.5 pandas-3.0.5 pytz-2026.3.post1 regex-2026.9.10 tld-0.13.2 tqdm-4.70.1 trafilatura-2.2.0 tzlocal-5.4.4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="import-library-dan-konfigurasi">
+<h2><strong>Import Library dan Konfigurasi</strong><a class="headerlink" href="#import-library-dan-konfigurasi" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="pada-tahap-ini-dilakukan-import-library-yang-akan-digunakan-dalam-proses-web-scraping-library-re-digunakan-untuk-melakukan-manipulasi-teks-time-dan-random-digunakan-untuk-memberikan-jeda-secara-acak-selama-proses-scraping-sedangkan-requests-digunakan-untuk-mengambil-halaman-web-library-pandas-digunakan-untuk-mengolah-data-dan-trafilatura-digunakan-untuk-mengambil-isi-utama-artikel-selain-itu-beautifulsoup-digunakan-untuk-membaca-struktur-html-sedangkan-beberapa-fungsi-dari-urllib-parse-digunakan-untuk-mengolah-url-library-tqdm-digunakan-untuk-menampilkan-progress-proses-scraping-pada-bagian-konfigurasi-juga-dibuat-user-agent-dan-requests-session-yang-digunakan-untuk-mengatur-request-ke-halaman-web-variabel-kategori-digunakan-untuk-menyimpan-alamat-halaman-indeks-dan-domain-berita-yang-akan-digunakan-yaitu-kategori-sport-dan-finance">
+<h2>Pada tahap ini dilakukan import library yang akan digunakan dalam proses Web Scraping. Library <code class="docutils literal notranslate"><span class="pre">re</span></code> digunakan untuk melakukan manipulasi teks, <code class="docutils literal notranslate"><span class="pre">time</span></code> dan <code class="docutils literal notranslate"><span class="pre">random</span></code> digunakan untuk memberikan jeda secara acak selama proses scraping, sedangkan <code class="docutils literal notranslate"><span class="pre">requests</span></code> digunakan untuk mengambil halaman web. Library <code class="docutils literal notranslate"><span class="pre">pandas</span></code> digunakan untuk mengolah data dan <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> digunakan untuk mengambil isi utama artikel. Selain itu, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> digunakan untuk membaca struktur HTML, sedangkan beberapa fungsi dari <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code> digunakan untuk mengolah URL. Library <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> digunakan untuk menampilkan progress proses scraping. Pada bagian konfigurasi juga dibuat <code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> dan <code class="docutils literal notranslate"><span class="pre">requests.Session()</span></code> yang digunakan untuk mengatur request ke halaman web. Variabel <code class="docutils literal notranslate"><span class="pre">kategori</span></code> digunakan untuk menyimpan alamat halaman indeks dan domain berita yang akan digunakan, yaitu kategori sport dan finance.<a class="headerlink" href="#pada-tahap-ini-dilakukan-import-library-yang-akan-digunakan-dalam-proses-web-scraping-library-re-digunakan-untuk-melakukan-manipulasi-teks-time-dan-random-digunakan-untuk-memberikan-jeda-secara-acak-selama-proses-scraping-sedangkan-requests-digunakan-untuk-mengambil-halaman-web-library-pandas-digunakan-untuk-mengolah-data-dan-trafilatura-digunakan-untuk-mengambil-isi-utama-artikel-selain-itu-beautifulsoup-digunakan-untuk-membaca-struktur-html-sedangkan-beberapa-fungsi-dari-urllib-parse-digunakan-untuk-mengolah-url-library-tqdm-digunakan-untuk-menampilkan-progress-proses-scraping-pada-bagian-konfigurasi-juga-dibuat-user-agent-dan-requests-session-yang-digunakan-untuk-mengatur-request-ke-halaman-web-variabel-kategori-digunakan-untuk-menyimpan-alamat-halaman-indeks-dan-domain-berita-yang-akan-digunakan-yaitu-kategori-sport-dan-finance" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">trafilatura</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urljoin</span><span class="p">,</span> <span class="n">urlsplit</span><span class="p">,</span> <span class="n">urlunsplit</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+
+<span class="c1"># ============================================================</span>
+<span class="c1"># 1. KONFIGURASI</span>
+<span class="c1"># ============================================================</span>
+
+<span class="n">HEADERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"User-Agent"</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s2">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) "</span>
+        <span class="s2">"AppleWebKit/537.36 (KHTML, like Gecko) "</span>
+        <span class="s2">"Chrome/152.0 Safari/537.36"</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="n">session</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">HEADERS</span><span class="p">)</span>
+
+
+<span class="n">kategori</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"sport"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://sport.detik.com/indeks"</span><span class="p">,</span>
+        <span class="s2">"domain"</span><span class="p">:</span> <span class="s2">"sport.detik.com"</span>
+    <span class="p">},</span>
+
+    <span class="s2">"finance"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://finance.detik.com/indeks"</span><span class="p">,</span>
+        <span class="s2">"domain"</span><span class="p">:</span> <span class="s2">"finance.detik.com"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normalisasi-url">
+<h2><strong>Normalisasi URL</strong><a class="headerlink" href="#normalisasi-url" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="fungsi-normalize-url-digunakan-untuk-membersihkan-url-yang-diperoleh-dari-halaman-web-pada-proses-ini-query-parameter-dan-fragment-pada-url-dihapus-sehingga-url-menjadi-lebih-sederhana-dan-konsisten-fungsi-urlsplit-digunakan-untuk-memisahkan-bagian-bagian-url-sedangkan-urlunsplit-digunakan-untuk-menyusun-kembali-url-yang-telah-dibersihkan-normalisasi-ini-juga-membantu-menghindari-adanya-link-artikel-yang-sama-tetapi-memiliki-url-yang-berbeda-karena-adanya-parameter-tambahan">
+<h2>Fungsi <code class="docutils literal notranslate"><span class="pre">normalize_url()</span></code> digunakan untuk membersihkan URL yang diperoleh dari halaman web. Pada proses ini query parameter dan fragment pada URL dihapus sehingga URL menjadi lebih sederhana dan konsisten. Fungsi <code class="docutils literal notranslate"><span class="pre">urlsplit()</span></code> digunakan untuk memisahkan bagian-bagian URL, sedangkan <code class="docutils literal notranslate"><span class="pre">urlunsplit()</span></code> digunakan untuk menyusun kembali URL yang telah dibersihkan. Normalisasi ini juga membantu menghindari adanya link artikel yang sama tetapi memiliki URL yang berbeda karena adanya parameter tambahan.<a class="headerlink" href="#fungsi-normalize-url-digunakan-untuk-membersihkan-url-yang-diperoleh-dari-halaman-web-pada-proses-ini-query-parameter-dan-fragment-pada-url-dihapus-sehingga-url-menjadi-lebih-sederhana-dan-konsisten-fungsi-urlsplit-digunakan-untuk-memisahkan-bagian-bagian-url-sedangkan-urlunsplit-digunakan-untuk-menyusun-kembali-url-yang-telah-dibersihkan-normalisasi-ini-juga-membantu-menghindari-adanya-link-artikel-yang-sama-tetapi-memiliki-url-yang-berbeda-karena-adanya-parameter-tambahan" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normalize_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Menghapus query parameter dan fragment dari URL.</span>
+<span class="sd">    """</span>
+
+    <span class="n">bagian</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="n">url_bersih</span> <span class="o">=</span> <span class="n">urlunsplit</span><span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">bagian</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span>
+            <span class="n">bagian</span><span class="o">.</span><span class="n">netloc</span><span class="p">,</span>
+            <span class="n">bagian</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="s2">""</span><span class="p">,</span>
+            <span class="s2">""</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">url_bersih</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mengambil-link-berita">
+<h2><strong>Mengambil Link Berita</strong><a class="headerlink" href="#mengambil-link-berita" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="fungsi-ambil-link-berita-digunakan-untuk-mengambil-link-artikel-dari-halaman-indeks-detik-berdasarkan-kategori-berita-program-membaca-halaman-indeks-secara-bertahap-menggunakan-nomor-halaman-kemudian-memeriksa-link-yang-ditemukan-untuk-memastikan-bahwa-link-tersebut-berasal-dari-domain-yang-sesuai-dan-memiliki-pola-url-artikel-detik-link-yang-sudah-ditemukan-disimpan-menggunakan-set-untuk-menghindari-duplikasi-parameter-target-digunakan-untuk-menentukan-jumlah-link-yang-ingin-dikumpulkan-sedangkan-max-page-digunakan-untuk-membatasi-jumlah-halaman-yang-diperiksa-program-juga-memberikan-jeda-secara-acak-antara-satu-sampai-dua-detik-pada-setiap-halaman-agar-request-tidak-dilakukan-secara-terus-menerus-tanpa-jeda">
+<h2>Fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code> digunakan untuk mengambil link artikel dari halaman indeks Detik berdasarkan kategori berita. Program membaca halaman indeks secara bertahap menggunakan nomor halaman, kemudian memeriksa link yang ditemukan untuk memastikan bahwa link tersebut berasal dari domain yang sesuai dan memiliki pola URL artikel Detik. Link yang sudah ditemukan disimpan menggunakan <code class="docutils literal notranslate"><span class="pre">set</span></code> untuk menghindari duplikasi. Parameter <code class="docutils literal notranslate"><span class="pre">target</span></code> digunakan untuk menentukan jumlah link yang ingin dikumpulkan, sedangkan <code class="docutils literal notranslate"><span class="pre">max_page</span></code> digunakan untuk membatasi jumlah halaman yang diperiksa. Program juga memberikan jeda secara acak antara satu sampai dua detik pada setiap halaman agar request tidak dilakukan secara terus-menerus tanpa jeda.<a class="headerlink" href="#fungsi-ambil-link-berita-digunakan-untuk-mengambil-link-artikel-dari-halaman-indeks-detik-berdasarkan-kategori-berita-program-membaca-halaman-indeks-secara-bertahap-menggunakan-nomor-halaman-kemudian-memeriksa-link-yang-ditemukan-untuk-memastikan-bahwa-link-tersebut-berasal-dari-domain-yang-sesuai-dan-memiliki-pola-url-artikel-detik-link-yang-sudah-ditemukan-disimpan-menggunakan-set-untuk-menghindari-duplikasi-parameter-target-digunakan-untuk-menentukan-jumlah-link-yang-ingin-dikumpulkan-sedangkan-max-page-digunakan-untuk-membatasi-jumlah-halaman-yang-diperiksa-program-juga-memberikan-jeda-secara-acak-antara-satu-sampai-dua-detik-pada-setiap-halaman-agar-request-tidak-dilakukan-secara-terus-menerus-tanpa-jeda" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ambil_link_berita</span><span class="p">(</span><span class="n">index_url</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">max_page</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+
+    <span class="n">links</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">sudah_ada</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_page</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+
+        <span class="n">url_page</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">index_url</span><span class="si">}</span><span class="s2">?page=</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">"</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Membaca halaman </span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">url_page</span><span class="p">,</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="mi">20</span>
+            <span class="p">)</span>
+
+            <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error:"</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+            <span class="s2">"html.parser"</span>
+        <span class="p">)</span>
+
+
+        <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+            <span class="n">href</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span>
+                <span class="n">url_page</span><span class="p">,</span>
+                <span class="n">tag</span><span class="p">[</span><span class="s2">"href"</span><span class="p">]</span>
+            <span class="p">)</span>
+
+            <span class="n">href</span> <span class="o">=</span> <span class="n">normalize_url</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+
+            <span class="n">parsed</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+
+
+            <span class="c1"># URL artikel Detik biasanya memiliki /d-xxxx</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">parsed</span><span class="o">.</span><span class="n">netloc</span> <span class="o">==</span> <span class="n">domain</span>
+                <span class="ow">and</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"/d-\d+"</span><span class="p">,</span> <span class="n">parsed</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+            <span class="p">):</span>
+
+                <span class="k">if</span> <span class="n">href</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sudah_ada</span><span class="p">:</span>
+
+                    <span class="n">sudah_ada</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+
+                    <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">href</span><span class="p">)</span>
+
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"Jumlah link:"</span><span class="p">,</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">)</span>
+        <span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">break</span>
+
+
+        <span class="c1"># delay</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">links</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pengumpulan-link-berita-sport">
+<h2><strong>Pengumpulan Link Berita Sport</strong><a class="headerlink" href="#pengumpulan-link-berita-sport" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-sport-menggunakan-fungsi-ambil-link-berita-target-awal-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-beberapa-halaman-indeks-dan-mengumpulkan-link-artikel-yang-memenuhi-kriteria-hasil-link-yang-diperoleh-kemudian-disimpan-pada-variabel-link-sport-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-157-kandidat-link-berita-sport-yang-selanjutnya-digunakan-sebagai-sumber-untuk-mengambil-isi-artikel">
+<h2>Pada tahap ini dilakukan pengumpulan kandidat link berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code>. Target awal yang ditentukan adalah sebanyak 150 link berita. Program akan membaca beberapa halaman indeks dan mengumpulkan link artikel yang memenuhi kriteria. Hasil link yang diperoleh kemudian disimpan pada variabel <code class="docutils literal notranslate"><span class="pre">link_sport</span></code>. Berdasarkan hasil eksekusi, diperoleh sebanyak <strong>157 kandidat link berita sport</strong> yang selanjutnya digunakan sebagai sumber untuk mengambil isi artikel.<a class="headerlink" href="#pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-sport-menggunakan-fungsi-ambil-link-berita-target-awal-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-beberapa-halaman-indeks-dan-mengumpulkan-link-artikel-yang-memenuhi-kriteria-hasil-link-yang-diperoleh-kemudian-disimpan-pada-variabel-link-sport-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-157-kandidat-link-berita-sport-yang-selanjutnya-digunakan-sebagai-sumber-untuk-mengambil-isi-artikel" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link_sport</span> <span class="o">=</span> <span class="n">ambil_link_berita</span><span class="p">(</span>
+    <span class="n">kategori</span><span class="p">[</span><span class="s2">"sport"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">],</span>
+    <span class="n">kategori</span><span class="p">[</span><span class="s2">"sport"</span><span class="p">][</span><span class="s2">"domain"</span><span class="p">],</span>
+    <span class="n">target</span><span class="o">=</span><span class="mi">150</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">"Total kandidat Sport:"</span><span class="p">,</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">link_sport</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 19
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 39
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 57
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 77
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 97
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 117
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 7
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 137
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 8
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 157
+Total kandidat Sport: 157
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pengumpulan-kandidat-link-berita-finance">
+<h2><strong>Pengumpulan Kandidat Link Berita Finance</strong><a class="headerlink" href="#pengumpulan-kandidat-link-berita-finance" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-finance-menggunakan-fungsi-ambil-link-berita-target-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-halaman-indeks-dan-mengambil-link-artikel-yang-sesuai-dengan-domain-serta-pola-url-yang-telah-ditentukan-hasil-pengumpulan-link-kemudian-disimpan-pada-variabel-link-finance-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-154-kandidat-link-berita-finance-yang-akan-digunakan-pada-proses-scraping-isi-artikel">
+<h2>Pada tahap ini dilakukan pengumpulan kandidat link berita dari kategori <code class="docutils literal notranslate"><span class="pre">finance</span></code> menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code>. Target yang ditentukan adalah sebanyak 150 link berita. Program akan membaca halaman indeks dan mengambil link artikel yang sesuai dengan domain serta pola URL yang telah ditentukan. Hasil pengumpulan link kemudian disimpan pada variabel <code class="docutils literal notranslate"><span class="pre">link_finance</span></code>. Berdasarkan hasil eksekusi, diperoleh sebanyak <strong>154 kandidat link berita finance</strong> yang akan digunakan pada proses scraping isi artikel.<a class="headerlink" href="#pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-finance-menggunakan-fungsi-ambil-link-berita-target-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-halaman-indeks-dan-mengambil-link-artikel-yang-sesuai-dengan-domain-serta-pola-url-yang-telah-ditentukan-hasil-pengumpulan-link-kemudian-disimpan-pada-variabel-link-finance-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-154-kandidat-link-berita-finance-yang-akan-digunakan-pada-proses-scraping-isi-artikel" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">link_finance</span> <span class="o">=</span> <span class="n">ambil_link_berita</span><span class="p">(</span>
+    <span class="n">kategori</span><span class="p">[</span><span class="s2">"finance"</span><span class="p">][</span><span class="s2">"url"</span><span class="p">],</span>
+    <span class="n">kategori</span><span class="p">[</span><span class="s2">"finance"</span><span class="p">][</span><span class="s2">"domain"</span><span class="p">],</span>
+    <span class="n">target</span><span class="o">=</span><span class="mi">150</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">"Total kandidat Finance:"</span><span class="p">,</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">link_finance</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 19
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 36
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 55
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 4
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 75
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 93
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 108
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 7
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 126
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 8
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 146
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 9
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 166
+Total kandidat Finance: 166
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pembersihan-teks-berita">
+<h2><strong>Pembersihan Teks Berita</strong><a class="headerlink" href="#pembersihan-teks-berita" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="fungsi-bersihkan-teks-digunakan-untuk-membersihkan-isi-berita-yang-diperoleh-dari-halaman-web-beberapa-teks-yang-tidak-termasuk-isi-utama-berita-seperti-advertisement-dan-scroll-to-continue-with-content-dihapus-menggunakan-regular-expression-selain-itu-spasi-atau-whitespace-yang-berlebihan-diubah-menjadi-satu-spasi-agar-teks-menjadi-lebih-rapi-jika-teks-yang-diperoleh-bernilai-none-fungsi-akan-mengembalikan-none-setelah-seluruh-proses-selesai-teks-dirapikan-menggunakan-strip-untuk-menghilangkan-spasi-pada-bagian-awal-dan-akhir">
+<h2>Fungsi <code class="docutils literal notranslate"><span class="pre">bersihkan_teks()</span></code> digunakan untuk membersihkan isi berita yang diperoleh dari halaman web. Beberapa teks yang tidak termasuk isi utama berita, seperti <code class="docutils literal notranslate"><span class="pre">ADVERTISEMENT</span></code> dan <code class="docutils literal notranslate"><span class="pre">SCROLL</span> <span class="pre">TO</span> <span class="pre">CONTINUE</span> <span class="pre">WITH</span> <span class="pre">CONTENT</span></code>, dihapus menggunakan regular expression. Selain itu, spasi atau whitespace yang berlebihan diubah menjadi satu spasi agar teks menjadi lebih rapi. Jika teks yang diperoleh bernilai <code class="docutils literal notranslate"><span class="pre">None</span></code>, fungsi akan mengembalikan <code class="docutils literal notranslate"><span class="pre">None</span></code>. Setelah seluruh proses selesai, teks dirapikan menggunakan <code class="docutils literal notranslate"><span class="pre">strip()</span></code> untuk menghilangkan spasi pada bagian awal dan akhir.<a class="headerlink" href="#fungsi-bersihkan-teks-digunakan-untuk-membersihkan-isi-berita-yang-diperoleh-dari-halaman-web-beberapa-teks-yang-tidak-termasuk-isi-utama-berita-seperti-advertisement-dan-scroll-to-continue-with-content-dihapus-menggunakan-regular-expression-selain-itu-spasi-atau-whitespace-yang-berlebihan-diubah-menjadi-satu-spasi-agar-teks-menjadi-lebih-rapi-jika-teks-yang-diperoleh-bernilai-none-fungsi-akan-mengembalikan-none-setelah-seluruh-proses-selesai-teks-dirapikan-menggunakan-strip-untuk-menghilangkan-spasi-pada-bagian-awal-dan-akhir" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bersihkan_teks</span><span class="p">(</span><span class="n">teks</span><span class="p">):</span>
+
+    <span class="k">if</span> <span class="n">teks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+
+    <span class="c1"># menghapus teks iklan</span>
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">"ADVERTISEMENT"</span><span class="p">,</span>
+        <span class="s2">" "</span><span class="p">,</span>
+        <span class="n">teks</span><span class="p">,</span>
+        <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span>
+    <span class="p">)</span>
+
+
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">"SCROLL TO CONTINUE WITH CONTENT"</span><span class="p">,</span>
+        <span class="s2">" "</span><span class="p">,</span>
+        <span class="n">teks</span><span class="p">,</span>
+        <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span>
+    <span class="p">)</span>
+
+
+    <span class="c1"># menghapus spasi berlebihan</span>
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
+        <span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span>
+        <span class="s2">" "</span><span class="p">,</span>
+        <span class="n">teks</span>
+    <span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">teks</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ekstraksi-isi-berita">
+<h2><strong>Ekstraksi Isi Berita</strong><a class="headerlink" href="#ekstraksi-isi-berita" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="fungsi-ambil-isi-berita-digunakan-untuk-mengambil-isi-utama-artikel-berdasarkan-url-yang-telah-dikumpulkan-program-melakukan-request-ke-halaman-artikel-menggunakan-session-get-kemudian-memeriksa-keberhasilan-request-menggunakan-raise-for-status-setelah-halaman-berhasil-diperoleh-trafilatura-extract-digunakan-untuk-mengekstrak-teks-utama-artikel-dengan-tidak-menyertakan-komentar-dan-tabel-hasil-ekstraksi-kemudian-dibersihkan-menggunakan-fungsi-bersihkan-teks-artikel-hanya-diterima-apabila-memiliki-isi-dan-panjang-teks-minimal-300-karakter-jika-terjadi-kesalahan-saat-proses-pengambilan-artikel-program-menampilkan-url-dan-pesan-error-kemudian-mengembalikan-nilai-none">
+<h2>Fungsi <code class="docutils literal notranslate"><span class="pre">ambil_isi_berita()</span></code> digunakan untuk mengambil isi utama artikel berdasarkan URL yang telah dikumpulkan. Program melakukan request ke halaman artikel menggunakan <code class="docutils literal notranslate"><span class="pre">session.get()</span></code>, kemudian memeriksa keberhasilan request menggunakan <code class="docutils literal notranslate"><span class="pre">raise_for_status()</span></code>. Setelah halaman berhasil diperoleh, <code class="docutils literal notranslate"><span class="pre">trafilatura.extract()</span></code> digunakan untuk mengekstrak teks utama artikel dengan tidak menyertakan komentar dan tabel. Hasil ekstraksi kemudian dibersihkan menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">bersihkan_teks()</span></code>. Artikel hanya diterima apabila memiliki isi dan panjang teks minimal 300 karakter. Jika terjadi kesalahan saat proses pengambilan artikel, program menampilkan URL dan pesan error kemudian mengembalikan nilai <code class="docutils literal notranslate"><span class="pre">None</span></code>.<a class="headerlink" href="#fungsi-ambil-isi-berita-digunakan-untuk-mengambil-isi-utama-artikel-berdasarkan-url-yang-telah-dikumpulkan-program-melakukan-request-ke-halaman-artikel-menggunakan-session-get-kemudian-memeriksa-keberhasilan-request-menggunakan-raise-for-status-setelah-halaman-berhasil-diperoleh-trafilatura-extract-digunakan-untuk-mengekstrak-teks-utama-artikel-dengan-tidak-menyertakan-komentar-dan-tabel-hasil-ekstraksi-kemudian-dibersihkan-menggunakan-fungsi-bersihkan-teks-artikel-hanya-diterima-apabila-memiliki-isi-dan-panjang-teks-minimal-300-karakter-jika-terjadi-kesalahan-saat-proses-pengambilan-artikel-program-menampilkan-url-dan-pesan-error-kemudian-mengembalikan-nilai-none" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ambil_isi_berita</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">url</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">25</span>
+        <span class="p">)</span>
+
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+
+        <span class="n">isi</span> <span class="o">=</span> <span class="n">trafilatura</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span>
+            <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+            <span class="n">include_comments</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">include_tables</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">output_format</span><span class="o">=</span><span class="s2">"txt"</span><span class="p">,</span>
+            <span class="n">favor_precision</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">deduplicate</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+
+        <span class="n">isi</span> <span class="o">=</span> <span class="n">bersihkan_teks</span><span class="p">(</span><span class="n">isi</span><span class="p">)</span>
+
+
+        <span class="c1"># menghindari halaman kosong</span>
+        <span class="c1"># atau isi yang terlalu pendek</span>
+        <span class="k">if</span> <span class="n">isi</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">isi</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="n">isi</span>
+
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"Gagal:"</span><span class="p">,</span>
+            <span class="n">url</span>
+        <span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="s2">"Error:"</span><span class="p">,</span>
+            <span class="n">e</span>
+        <span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="proses-scraping-berdasarkan-kategori">
+<h2><strong>Proses Scraping Berdasarkan Kategori</strong><a class="headerlink" href="#proses-scraping-berdasarkan-kategori" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="fungsi-scraping-kategori-digunakan-untuk-mengambil-isi-berita-dari-kumpulan-link-berdasarkan-kategori-tertentu-setiap-url-diproses-menggunakan-fungsi-ambil-isi-berita-jika-isi-artikel-berhasil-diperoleh-data-disimpan-dalam-bentuk-dictionary-yang-terdiri-dari-isi-berita-dan-label-parameter-target-digunakan-untuk-menentukan-jumlah-artikel-yang-ingin-dikumpulkan-progress-proses-ditampilkan-menggunakan-tqdm-sedangkan-delay-acak-diberikan-setelah-setiap-proses-pengambilan-artikel-agar-request-tidak-dilakukan-terlalu-cepat">
+<h2>Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_kategori()</span></code> digunakan untuk mengambil isi berita dari kumpulan link berdasarkan kategori tertentu. Setiap URL diproses menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_isi_berita()</span></code>. Jika isi artikel berhasil diperoleh, data disimpan dalam bentuk dictionary yang terdiri dari <code class="docutils literal notranslate"><span class="pre">isi_berita</span></code> dan <code class="docutils literal notranslate"><span class="pre">label</span></code>. Parameter <code class="docutils literal notranslate"><span class="pre">target</span></code> digunakan untuk menentukan jumlah artikel yang ingin dikumpulkan. Progress proses ditampilkan menggunakan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code>, sedangkan delay acak diberikan setelah setiap proses pengambilan artikel agar request tidak dilakukan terlalu cepat.<a class="headerlink" href="#fungsi-scraping-kategori-digunakan-untuk-mengambil-isi-berita-dari-kumpulan-link-berdasarkan-kategori-tertentu-setiap-url-diproses-menggunakan-fungsi-ambil-isi-berita-jika-isi-artikel-berhasil-diperoleh-data-disimpan-dalam-bentuk-dictionary-yang-terdiri-dari-isi-berita-dan-label-parameter-target-digunakan-untuk-menentukan-jumlah-artikel-yang-ingin-dikumpulkan-progress-proses-ditampilkan-menggunakan-tqdm-sedangkan-delay-acak-diberikan-setelah-setiap-proses-pengambilan-artikel-agar-request-tidak-dilakukan-terlalu-cepat" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scraping_kategori</span><span class="p">(</span>
+    <span class="n">links</span><span class="p">,</span>
+    <span class="n">label</span><span class="p">,</span>
+    <span class="n">target</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">):</span>
+
+    <span class="n">hasil</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
+        <span class="n">links</span><span class="p">,</span>
+        <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Scraping </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span>
+    <span class="p">):</span>
+
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">hasil</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">:</span>
+            <span class="k">break</span>
+
+
+        <span class="n">isi</span> <span class="o">=</span> <span class="n">ambil_isi_berita</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+
+        <span class="k">if</span> <span class="n">isi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">hasil</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s2">"isi_berita"</span><span class="p">:</span> <span class="n">isi</span><span class="p">,</span>
+                    <span class="s2">"label"</span><span class="p">:</span> <span class="n">label</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+
+        <span class="c1"># delay supaya tidak terlalu cepat</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">)</span>
+
+
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2"> berhasil:"</span><span class="p">,</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">hasil</span><span class="p">)</span>
+    <span class="p">)</span>
+
+
+    <span class="k">return</span> <span class="n">hasil</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scraping-100-berita-sport">
+<h2><strong>Scraping 100 Berita Sport</strong><a class="headerlink" href="#scraping-100-berita-sport" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="pada-tahap-ini-dilakukan-proses-scraping-isi-artikel-dari-kandidat-link-kategori-sport-dan-finance-fungsi-scraping-kategori-digunakan-dengan-target-sebanyak-100-artikel-program-akan-mengambil-isi-berita-dari-link-yang-tersedia-dan-hanya-memasukkan-artikel-yang-berhasil-diekstraksi-sesuai-kriteria-yang-telah-ditentukan-hasil-proses-kemudian-disimpan-dalam-variabel-data-sport-dan-data-finance-berdasarkan-hasil-eksekusi-berhasil-diperoleh-100-berita-sport-dan-100-berita-finance">
+<h2>Pada tahap ini dilakukan proses scraping isi artikel dari kandidat link kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code>. Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_kategori()</span></code> digunakan dengan target sebanyak 100 artikel. Program akan mengambil isi berita dari link yang tersedia dan hanya memasukkan artikel yang berhasil diekstraksi sesuai kriteria yang telah ditentukan. Hasil proses kemudian disimpan dalam variabel <code class="docutils literal notranslate"><span class="pre">data_sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">data_finance</span></code>. Berdasarkan hasil eksekusi, berhasil diperoleh <strong>100 berita sport</strong> dan <strong>100 berita finance</strong>.<a class="headerlink" href="#pada-tahap-ini-dilakukan-proses-scraping-isi-artikel-dari-kandidat-link-kategori-sport-dan-finance-fungsi-scraping-kategori-digunakan-dengan-target-sebanyak-100-artikel-program-akan-mengambil-isi-berita-dari-link-yang-tersedia-dan-hanya-memasukkan-artikel-yang-berhasil-diekstraksi-sesuai-kriteria-yang-telah-ditentukan-hasil-proses-kemudian-disimpan-dalam-variabel-data-sport-dan-data-finance-berdasarkan-hasil-eksekusi-berhasil-diperoleh-100-berita-sport-dan-100-berita-finance" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_sport</span> <span class="o">=</span> <span class="n">scraping_kategori</span><span class="p">(</span>
+    <span class="n">link_sport</span><span class="p">,</span>
+    <span class="s2">"sport"</span><span class="p">,</span>
+    <span class="n">target</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   0%|                                                                             | 0/157 [00:00&lt;?, ?it/s]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   1%|▍                                                                    | 1/157 [00:01&lt;03:26,  1.32s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   1%|▉                                                                    | 2/157 [00:02&lt;03:31,  1.36s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   2%|█▎                                                                   | 3/157 [00:04&lt;04:21,  1.70s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   3%|█▊                                                                   | 4/157 [00:06&lt;04:13,  1.66s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   3%|██▏                                                                  | 5/157 [00:08&lt;04:36,  1.82s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   4%|██▋                                                                  | 6/157 [00:10&lt;04:38,  1.84s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   4%|███                                                                  | 7/157 [00:11&lt;04:17,  1.72s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   5%|███▌                                                                 | 8/157 [00:13&lt;04:10,  1.68s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   6%|███▉                                                                 | 9/157 [00:15&lt;04:31,  1.83s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   6%|████▎                                                               | 10/157 [00:16&lt;04:03,  1.66s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   7%|████▊                                                               | 11/157 [00:18&lt;03:51,  1.59s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   8%|█████▏                                                              | 12/157 [00:20&lt;04:11,  1.74s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   8%|█████▋                                                              | 13/157 [00:22&lt;04:14,  1.77s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   9%|██████                                                              | 14/157 [00:24&lt;04:26,  1.87s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  10%|██████▍                                                             | 15/157 [00:26&lt;04:29,  1.90s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  10%|██████▉                                                             | 16/157 [00:28&lt;04:22,  1.86s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  11%|███████▎                                                            | 17/157 [00:29&lt;03:59,  1.71s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  11%|███████▎                                                            | 17/157 [00:29&lt;04:06,  1.76s/it]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_sport</span> <span class="o">=</span> <span class="n">scraping_kategori</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">link_sport</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="s2">"sport"</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">target</span><span class="o">=</span><span class="mi">100</span>
+
+<span class="nn">Cell In[9], line 34,</span> in <span class="ni">scraping_kategori</span><span class="nt">(links, label, target)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>             <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> 
+<span class="g g-Whitespace">     </span><span class="mi">32</span> 
+<span class="g g-Whitespace">     </span><span class="mi">33</span>         <span class="c1"># delay supaya tidak terlalu cepat</span>
+<span class="ne">---&gt; </span><span class="mi">34</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span>             <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_finance</span> <span class="o">=</span> <span class="n">scraping_kategori</span><span class="p">(</span>
+    <span class="n">link_finance</span><span class="p">,</span>
+    <span class="s2">"finance"</span><span class="p">,</span>
+    <span class="n">target</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping finance:  68%|██████▊   | 105/154 [04:15&lt;01:59,  2.44s/it]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>finance berhasil: 100
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="menggabungkan-data-berita">
+<h2><strong>Menggabungkan Data Berita</strong><a class="headerlink" href="#menggabungkan-data-berita" title="Permalink to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="pada-tahap-ini-data-berita-dari-kategori-sport-dan-finance-digabungkan-menjadi-satu-data-menggunakan-operator-data-dari-kedua-kategori-yang-sebelumnya-disimpan-dalam-variabel-berbeda-digabungkan-ke-dalam-variabel-data-semua-dengan-demikian-seluruh-hasil-scraping-dari-kedua-kategori-dapat-diproses-sebagai-satu-dataset">
+<h2>Pada tahap ini data berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code> digabungkan menjadi satu data menggunakan operator <code class="docutils literal notranslate"><span class="pre">+</span></code>. Data dari kedua kategori yang sebelumnya disimpan dalam variabel berbeda digabungkan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">data_semua</span></code>. Dengan demikian, seluruh hasil scraping dari kedua kategori dapat diproses sebagai satu dataset.<a class="headerlink" href="#pada-tahap-ini-data-berita-dari-kategori-sport-dan-finance-digabungkan-menjadi-satu-data-menggunakan-operator-data-dari-kedua-kategori-yang-sebelumnya-disimpan-dalam-variabel-berbeda-digabungkan-ke-dalam-variabel-data-semua-dengan-demikian-seluruh-hasil-scraping-dari-kedua-kategori-dapat-diproses-sebagai-satu-dataset" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_semua</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">data_sport</span>
+    <span class="o">+</span>
+    <span class="n">data_finance</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data_semua</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">"id"</span><span class="p">,</span>
+    <span class="nb">range</span><span class="p">(</span>
+        <span class="mi">1</span><span class="p">,</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span>
+    <span class="p">[</span>
+        <span class="s2">"id"</span><span class="p">,</span>
+        <span class="s2">"isi_berita"</span><span class="p">,</span>
+        <span class="s2">"label"</span>
+    <span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>isi_berita</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Pacuan kuda Indonesia mulai diarahkan menuju p...</td>
+      <td>sport</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Jelang Asian Games 2026, dukungan untuk 432 at...</td>
+      <td>sport</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Nova Widianto mulai menangani tim ganda campur...</td>
+      <td>sport</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Timnas basket putra Indonesia jadi rombongan p...</td>
+      <td>sport</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Bagi pelari urban, lari kini bukan lagi sekada...</td>
+      <td>sport</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>196</td>
+      <td>Menteri Pertanian (Mentan), Andi Amran Sulaima...</td>
+      <td>finance</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>197</td>
+      <td>Menteri Keuangan (Menkeu) Purbaya Yudhi mengaj...</td>
+      <td>finance</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>198</td>
+      <td>Masyarakat Indonesia semakin banyak yang mengg...</td>
+      <td>finance</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>199</td>
+      <td>Presiden Prabowo Subianto meminta semua pihak ...</td>
+      <td>finance</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>200</td>
+      <td>Otoritas Jasa Keuangan (OJK) mencatatkan kiner...</td>
+      <td>finance</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="s2">"Total data:"</span><span class="p">,</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total data: 200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>label
+sport      100
+finance    100
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nama_file</span> <span class="o">=</span> <span class="s2">"dataset_detik_200_berita.xlsx"</span>
+
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span>
+    <span class="n">nama_file</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">"File berhasil disimpan:"</span><span class="p">,</span>
+    <span class="n">nama_file</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File berhasil disimpan: dataset_detik_200_berita.xlsx
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">"dataset_detik_200_berita.xlsx"</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\Asus\ppw\dataset_detik_200_berita.xlsx
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "nwebmining"
+        },
+        kernelOptions: {
+            name: "nwebmining",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'nwebmining'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SELAMAT DATANG DI MATA KULIAH PENCARIAN DAN PENAMBANGAN WEB</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tugas2_ppw.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Tugas 2 - Kata Unik pada Dataset</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance</strong></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-library"><strong>Instalasi Library</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping">Pada tahap pertama dilakukan instalasi beberapa library Python yang dibutuhkan untuk proses Web Scraping. Library yang digunakan yaitu <code class="docutils literal notranslate"><span class="pre">requests</span></code> untuk mengambil halaman web, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> untuk membaca struktur HTML, <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> untuk mengambil isi utama artikel, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk mengolah data, <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> untuk menyimpan data ke dalam file Excel, dan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> untuk menampilkan progress proses scraping.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-dan-konfigurasi"><strong>Import Library dan Konfigurasi</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-import-library-yang-akan-digunakan-dalam-proses-web-scraping-library-re-digunakan-untuk-melakukan-manipulasi-teks-time-dan-random-digunakan-untuk-memberikan-jeda-secara-acak-selama-proses-scraping-sedangkan-requests-digunakan-untuk-mengambil-halaman-web-library-pandas-digunakan-untuk-mengolah-data-dan-trafilatura-digunakan-untuk-mengambil-isi-utama-artikel-selain-itu-beautifulsoup-digunakan-untuk-membaca-struktur-html-sedangkan-beberapa-fungsi-dari-urllib-parse-digunakan-untuk-mengolah-url-library-tqdm-digunakan-untuk-menampilkan-progress-proses-scraping-pada-bagian-konfigurasi-juga-dibuat-user-agent-dan-requests-session-yang-digunakan-untuk-mengatur-request-ke-halaman-web-variabel-kategori-digunakan-untuk-menyimpan-alamat-halaman-indeks-dan-domain-berita-yang-akan-digunakan-yaitu-kategori-sport-dan-finance">Pada tahap ini dilakukan import library yang akan digunakan dalam proses Web Scraping. Library <code class="docutils literal notranslate"><span class="pre">re</span></code> digunakan untuk melakukan manipulasi teks, <code class="docutils literal notranslate"><span class="pre">time</span></code> dan <code class="docutils literal notranslate"><span class="pre">random</span></code> digunakan untuk memberikan jeda secara acak selama proses scraping, sedangkan <code class="docutils literal notranslate"><span class="pre">requests</span></code> digunakan untuk mengambil halaman web. Library <code class="docutils literal notranslate"><span class="pre">pandas</span></code> digunakan untuk mengolah data dan <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> digunakan untuk mengambil isi utama artikel. Selain itu, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> digunakan untuk membaca struktur HTML, sedangkan beberapa fungsi dari <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code> digunakan untuk mengolah URL. Library <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> digunakan untuk menampilkan progress proses scraping. Pada bagian konfigurasi juga dibuat <code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> dan <code class="docutils literal notranslate"><span class="pre">requests.Session()</span></code> yang digunakan untuk mengatur request ke halaman web. Variabel <code class="docutils literal notranslate"><span class="pre">kategori</span></code> digunakan untuk menyimpan alamat halaman indeks dan domain berita yang akan digunakan, yaitu kategori sport dan finance.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-url"><strong>Normalisasi URL</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-normalize-url-digunakan-untuk-membersihkan-url-yang-diperoleh-dari-halaman-web-pada-proses-ini-query-parameter-dan-fragment-pada-url-dihapus-sehingga-url-menjadi-lebih-sederhana-dan-konsisten-fungsi-urlsplit-digunakan-untuk-memisahkan-bagian-bagian-url-sedangkan-urlunsplit-digunakan-untuk-menyusun-kembali-url-yang-telah-dibersihkan-normalisasi-ini-juga-membantu-menghindari-adanya-link-artikel-yang-sama-tetapi-memiliki-url-yang-berbeda-karena-adanya-parameter-tambahan">Fungsi <code class="docutils literal notranslate"><span class="pre">normalize_url()</span></code> digunakan untuk membersihkan URL yang diperoleh dari halaman web. Pada proses ini query parameter dan fragment pada URL dihapus sehingga URL menjadi lebih sederhana dan konsisten. Fungsi <code class="docutils literal notranslate"><span class="pre">urlsplit()</span></code> digunakan untuk memisahkan bagian-bagian URL, sedangkan <code class="docutils literal notranslate"><span class="pre">urlunsplit()</span></code> digunakan untuk menyusun kembali URL yang telah dibersihkan. Normalisasi ini juga membantu menghindari adanya link artikel yang sama tetapi memiliki URL yang berbeda karena adanya parameter tambahan.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-link-berita"><strong>Mengambil Link Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-ambil-link-berita-digunakan-untuk-mengambil-link-artikel-dari-halaman-indeks-detik-berdasarkan-kategori-berita-program-membaca-halaman-indeks-secara-bertahap-menggunakan-nomor-halaman-kemudian-memeriksa-link-yang-ditemukan-untuk-memastikan-bahwa-link-tersebut-berasal-dari-domain-yang-sesuai-dan-memiliki-pola-url-artikel-detik-link-yang-sudah-ditemukan-disimpan-menggunakan-set-untuk-menghindari-duplikasi-parameter-target-digunakan-untuk-menentukan-jumlah-link-yang-ingin-dikumpulkan-sedangkan-max-page-digunakan-untuk-membatasi-jumlah-halaman-yang-diperiksa-program-juga-memberikan-jeda-secara-acak-antara-satu-sampai-dua-detik-pada-setiap-halaman-agar-request-tidak-dilakukan-secara-terus-menerus-tanpa-jeda">Fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code> digunakan untuk mengambil link artikel dari halaman indeks Detik berdasarkan kategori berita. Program membaca halaman indeks secara bertahap menggunakan nomor halaman, kemudian memeriksa link yang ditemukan untuk memastikan bahwa link tersebut berasal dari domain yang sesuai dan memiliki pola URL artikel Detik. Link yang sudah ditemukan disimpan menggunakan <code class="docutils literal notranslate"><span class="pre">set</span></code> untuk menghindari duplikasi. Parameter <code class="docutils literal notranslate"><span class="pre">target</span></code> digunakan untuk menentukan jumlah link yang ingin dikumpulkan, sedangkan <code class="docutils literal notranslate"><span class="pre">max_page</span></code> digunakan untuk membatasi jumlah halaman yang diperiksa. Program juga memberikan jeda secara acak antara satu sampai dua detik pada setiap halaman agar request tidak dilakukan secara terus-menerus tanpa jeda.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-link-berita-sport"><strong>Pengumpulan Link Berita Sport</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-sport-menggunakan-fungsi-ambil-link-berita-target-awal-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-beberapa-halaman-indeks-dan-mengumpulkan-link-artikel-yang-memenuhi-kriteria-hasil-link-yang-diperoleh-kemudian-disimpan-pada-variabel-link-sport-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-157-kandidat-link-berita-sport-yang-selanjutnya-digunakan-sebagai-sumber-untuk-mengambil-isi-artikel">Pada tahap ini dilakukan pengumpulan kandidat link berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code>. Target awal yang ditentukan adalah sebanyak 150 link berita. Program akan membaca beberapa halaman indeks dan mengumpulkan link artikel yang memenuhi kriteria. Hasil link yang diperoleh kemudian disimpan pada variabel <code class="docutils literal notranslate"><span class="pre">link_sport</span></code>. Berdasarkan hasil eksekusi, diperoleh sebanyak <strong>157 kandidat link berita sport</strong> yang selanjutnya digunakan sebagai sumber untuk mengambil isi artikel.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengumpulan-kandidat-link-berita-finance"><strong>Pengumpulan Kandidat Link Berita Finance</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-pengumpulan-kandidat-link-berita-dari-kategori-finance-menggunakan-fungsi-ambil-link-berita-target-yang-ditentukan-adalah-sebanyak-150-link-berita-program-akan-membaca-halaman-indeks-dan-mengambil-link-artikel-yang-sesuai-dengan-domain-serta-pola-url-yang-telah-ditentukan-hasil-pengumpulan-link-kemudian-disimpan-pada-variabel-link-finance-berdasarkan-hasil-eksekusi-diperoleh-sebanyak-154-kandidat-link-berita-finance-yang-akan-digunakan-pada-proses-scraping-isi-artikel">Pada tahap ini dilakukan pengumpulan kandidat link berita dari kategori <code class="docutils literal notranslate"><span class="pre">finance</span></code> menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_link_berita()</span></code>. Target yang ditentukan adalah sebanyak 150 link berita. Program akan membaca halaman indeks dan mengambil link artikel yang sesuai dengan domain serta pola URL yang telah ditentukan. Hasil pengumpulan link kemudian disimpan pada variabel <code class="docutils literal notranslate"><span class="pre">link_finance</span></code>. Berdasarkan hasil eksekusi, diperoleh sebanyak <strong>154 kandidat link berita finance</strong> yang akan digunakan pada proses scraping isi artikel.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembersihan-teks-berita"><strong>Pembersihan Teks Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-bersihkan-teks-digunakan-untuk-membersihkan-isi-berita-yang-diperoleh-dari-halaman-web-beberapa-teks-yang-tidak-termasuk-isi-utama-berita-seperti-advertisement-dan-scroll-to-continue-with-content-dihapus-menggunakan-regular-expression-selain-itu-spasi-atau-whitespace-yang-berlebihan-diubah-menjadi-satu-spasi-agar-teks-menjadi-lebih-rapi-jika-teks-yang-diperoleh-bernilai-none-fungsi-akan-mengembalikan-none-setelah-seluruh-proses-selesai-teks-dirapikan-menggunakan-strip-untuk-menghilangkan-spasi-pada-bagian-awal-dan-akhir">Fungsi <code class="docutils literal notranslate"><span class="pre">bersihkan_teks()</span></code> digunakan untuk membersihkan isi berita yang diperoleh dari halaman web. Beberapa teks yang tidak termasuk isi utama berita, seperti <code class="docutils literal notranslate"><span class="pre">ADVERTISEMENT</span></code> dan <code class="docutils literal notranslate"><span class="pre">SCROLL</span> <span class="pre">TO</span> <span class="pre">CONTINUE</span> <span class="pre">WITH</span> <span class="pre">CONTENT</span></code>, dihapus menggunakan regular expression. Selain itu, spasi atau whitespace yang berlebihan diubah menjadi satu spasi agar teks menjadi lebih rapi. Jika teks yang diperoleh bernilai <code class="docutils literal notranslate"><span class="pre">None</span></code>, fungsi akan mengembalikan <code class="docutils literal notranslate"><span class="pre">None</span></code>. Setelah seluruh proses selesai, teks dirapikan menggunakan <code class="docutils literal notranslate"><span class="pre">strip()</span></code> untuk menghilangkan spasi pada bagian awal dan akhir.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-isi-berita"><strong>Ekstraksi Isi Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-ambil-isi-berita-digunakan-untuk-mengambil-isi-utama-artikel-berdasarkan-url-yang-telah-dikumpulkan-program-melakukan-request-ke-halaman-artikel-menggunakan-session-get-kemudian-memeriksa-keberhasilan-request-menggunakan-raise-for-status-setelah-halaman-berhasil-diperoleh-trafilatura-extract-digunakan-untuk-mengekstrak-teks-utama-artikel-dengan-tidak-menyertakan-komentar-dan-tabel-hasil-ekstraksi-kemudian-dibersihkan-menggunakan-fungsi-bersihkan-teks-artikel-hanya-diterima-apabila-memiliki-isi-dan-panjang-teks-minimal-300-karakter-jika-terjadi-kesalahan-saat-proses-pengambilan-artikel-program-menampilkan-url-dan-pesan-error-kemudian-mengembalikan-nilai-none">Fungsi <code class="docutils literal notranslate"><span class="pre">ambil_isi_berita()</span></code> digunakan untuk mengambil isi utama artikel berdasarkan URL yang telah dikumpulkan. Program melakukan request ke halaman artikel menggunakan <code class="docutils literal notranslate"><span class="pre">session.get()</span></code>, kemudian memeriksa keberhasilan request menggunakan <code class="docutils literal notranslate"><span class="pre">raise_for_status()</span></code>. Setelah halaman berhasil diperoleh, <code class="docutils literal notranslate"><span class="pre">trafilatura.extract()</span></code> digunakan untuk mengekstrak teks utama artikel dengan tidak menyertakan komentar dan tabel. Hasil ekstraksi kemudian dibersihkan menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">bersihkan_teks()</span></code>. Artikel hanya diterima apabila memiliki isi dan panjang teks minimal 300 karakter. Jika terjadi kesalahan saat proses pengambilan artikel, program menampilkan URL dan pesan error kemudian mengembalikan nilai <code class="docutils literal notranslate"><span class="pre">None</span></code>.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-scraping-berdasarkan-kategori"><strong>Proses Scraping Berdasarkan Kategori</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-scraping-kategori-digunakan-untuk-mengambil-isi-berita-dari-kumpulan-link-berdasarkan-kategori-tertentu-setiap-url-diproses-menggunakan-fungsi-ambil-isi-berita-jika-isi-artikel-berhasil-diperoleh-data-disimpan-dalam-bentuk-dictionary-yang-terdiri-dari-isi-berita-dan-label-parameter-target-digunakan-untuk-menentukan-jumlah-artikel-yang-ingin-dikumpulkan-progress-proses-ditampilkan-menggunakan-tqdm-sedangkan-delay-acak-diberikan-setelah-setiap-proses-pengambilan-artikel-agar-request-tidak-dilakukan-terlalu-cepat">Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_kategori()</span></code> digunakan untuk mengambil isi berita dari kumpulan link berdasarkan kategori tertentu. Setiap URL diproses menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">ambil_isi_berita()</span></code>. Jika isi artikel berhasil diperoleh, data disimpan dalam bentuk dictionary yang terdiri dari <code class="docutils literal notranslate"><span class="pre">isi_berita</span></code> dan <code class="docutils literal notranslate"><span class="pre">label</span></code>. Parameter <code class="docutils literal notranslate"><span class="pre">target</span></code> digunakan untuk menentukan jumlah artikel yang ingin dikumpulkan. Progress proses ditampilkan menggunakan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code>, sedangkan delay acak diberikan setelah setiap proses pengambilan artikel agar request tidak dilakukan terlalu cepat.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scraping-100-berita-sport"><strong>Scraping 100 Berita Sport</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-proses-scraping-isi-artikel-dari-kandidat-link-kategori-sport-dan-finance-fungsi-scraping-kategori-digunakan-dengan-target-sebanyak-100-artikel-program-akan-mengambil-isi-berita-dari-link-yang-tersedia-dan-hanya-memasukkan-artikel-yang-berhasil-diekstraksi-sesuai-kriteria-yang-telah-ditentukan-hasil-proses-kemudian-disimpan-dalam-variabel-data-sport-dan-data-finance-berdasarkan-hasil-eksekusi-berhasil-diperoleh-100-berita-sport-dan-100-berita-finance">Pada tahap ini dilakukan proses scraping isi artikel dari kandidat link kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code>. Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_kategori()</span></code> digunakan dengan target sebanyak 100 artikel. Program akan mengambil isi berita dari link yang tersedia dan hanya memasukkan artikel yang berhasil diekstraksi sesuai kriteria yang telah ditentukan. Hasil proses kemudian disimpan dalam variabel <code class="docutils literal notranslate"><span class="pre">data_sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">data_finance</span></code>. Berdasarkan hasil eksekusi, berhasil diperoleh <strong>100 berita sport</strong> dan <strong>100 berita finance</strong>.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-data-berita"><strong>Menggabungkan Data Berita</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-data-berita-dari-kategori-sport-dan-finance-digabungkan-menjadi-satu-data-menggunakan-operator-data-dari-kedua-kategori-yang-sebelumnya-disimpan-dalam-variabel-berbeda-digabungkan-ke-dalam-variabel-data-semua-dengan-demikian-seluruh-hasil-scraping-dari-kedua-kategori-dapat-diproses-sebagai-satu-dataset">Pada tahap ini data berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code> digabungkan menjadi satu data menggunakan operator <code class="docutils literal notranslate"><span class="pre">+</span></code>. Data dari kedua kategori yang sebelumnya disimpan dalam variabel berbeda digabungkan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">data_semua</span></code>. Dengan demikian, seluruh hasil scraping dari kedua kategori dapat diproses sebagai satu dataset.</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Silvia Renata Suwandi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
