@@ -175,8 +175,8 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance</strong></a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="tugas2_ppw.html"><strong>Tugas 2 - Kata Unik pada Dataset</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas3_ppw.html"><strong>Tugas 3</strong></a></li>
 </ul>
 
     </div>
@@ -372,9 +372,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-library"><strong>Instalasi Library</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping">Pada tahap pertama dilakukan instalasi beberapa library Python yang dibutuhkan untuk proses Web Scraping. Library yang digunakan yaitu <code class="docutils literal notranslate"><span class="pre">requests</span></code> untuk mengambil halaman web, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> untuk membaca struktur HTML, <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> untuk mengambil isi utama artikel, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk mengolah data, <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> untuk menyimpan data ke dalam file Excel, dan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> untuk menampilkan progress proses scraping.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-library"><strong>Instalasi Library</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-dan-konfigurasi"><strong>Import Library dan Konfigurasi</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-import-library-yang-akan-digunakan-dalam-proses-web-scraping-library-re-digunakan-untuk-melakukan-manipulasi-teks-time-dan-random-digunakan-untuk-memberikan-jeda-secara-acak-selama-proses-scraping-sedangkan-requests-digunakan-untuk-mengambil-halaman-web-library-pandas-digunakan-untuk-mengolah-data-dan-trafilatura-digunakan-untuk-mengambil-isi-utama-artikel-selain-itu-beautifulsoup-digunakan-untuk-membaca-struktur-html-sedangkan-beberapa-fungsi-dari-urllib-parse-digunakan-untuk-mengolah-url-library-tqdm-digunakan-untuk-menampilkan-progress-proses-scraping-pada-bagian-konfigurasi-juga-dibuat-user-agent-dan-requests-session-yang-digunakan-untuk-mengatur-request-ke-halaman-web-variabel-kategori-digunakan-untuk-menyimpan-alamat-halaman-indeks-dan-domain-berita-yang-akan-digunakan-yaitu-kategori-sport-dan-finance">Pada tahap ini dilakukan import library yang akan digunakan dalam proses Web Scraping. Library <code class="docutils literal notranslate"><span class="pre">re</span></code> digunakan untuk melakukan manipulasi teks, <code class="docutils literal notranslate"><span class="pre">time</span></code> dan <code class="docutils literal notranslate"><span class="pre">random</span></code> digunakan untuk memberikan jeda secara acak selama proses scraping, sedangkan <code class="docutils literal notranslate"><span class="pre">requests</span></code> digunakan untuk mengambil halaman web. Library <code class="docutils literal notranslate"><span class="pre">pandas</span></code> digunakan untuk mengolah data dan <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> digunakan untuk mengambil isi utama artikel. Selain itu, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> digunakan untuk membaca struktur HTML, sedangkan beberapa fungsi dari <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code> digunakan untuk mengolah URL. Library <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> digunakan untuk menampilkan progress proses scraping. Pada bagian konfigurasi juga dibuat <code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> dan <code class="docutils literal notranslate"><span class="pre">requests.Session()</span></code> yang digunakan untuk mengatur request ke halaman web. Variabel <code class="docutils literal notranslate"><span class="pre">kategori</span></code> digunakan untuk menyimpan alamat halaman indeks dan domain berita yang akan digunakan, yaitu kategori sport dan finance.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-url"><strong>Normalisasi URL</strong></a></li>
@@ -396,9 +394,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-data-berita"><strong>Menggabungkan Data Berita</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-data-berita-dari-kategori-sport-dan-finance-digabungkan-menjadi-satu-data-menggunakan-operator-data-dari-kedua-kategori-yang-sebelumnya-disimpan-dalam-variabel-berbeda-digabungkan-ke-dalam-variabel-data-semua-dengan-demikian-seluruh-hasil-scraping-dari-kedua-kategori-dapat-diproses-sebagai-satu-dataset">Pada tahap ini data berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code> digabungkan menjadi satu data menggunakan operator <code class="docutils literal notranslate"><span class="pre">+</span></code>. Data dari kedua kategori yang sebelumnya disimpan dalam variabel berbeda digabungkan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">data_semua</span></code>. Dengan demikian, seluruh hasil scraping dari kedua kategori dapat diproses sebagai satu dataset.</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -411,13 +406,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tugas-1-web-scraping-berita-detik-com-untuk-pengumpulan-dataset-kategori-sport-dan-finance">
 <h1><strong>Tugas 1 – Web Scraping Berita <a class="reference external" href="http://Detik.com">Detik.com</a> untuk Pengumpulan Dataset Kategori Sport dan Finance</strong><a class="headerlink" href="#tugas-1-web-scraping-berita-detik-com-untuk-pengumpulan-dataset-kategori-sport-dan-finance" title="Permalink to this heading">#</a></h1>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="instalasi-library">
-<h1><strong>Instalasi Library</strong><a class="headerlink" href="#instalasi-library" title="Permalink to this heading">#</a></h1>
+<section id="instalasi-library">
+<h2><strong>Instalasi Library</strong><a class="headerlink" href="#instalasi-library" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
-<section id="pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping">
-<h2>Pada tahap pertama dilakukan instalasi beberapa library Python yang dibutuhkan untuk proses Web Scraping. Library yang digunakan yaitu <code class="docutils literal notranslate"><span class="pre">requests</span></code> untuk mengambil halaman web, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> untuk membaca struktur HTML, <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> untuk mengambil isi utama artikel, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk mengolah data, <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> untuk menyimpan data ke dalam file Excel, dan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> untuk menampilkan progress proses scraping.<a class="headerlink" href="#pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping" title="Permalink to this heading">#</a></h2>
+<p>Pada tahap pertama dilakukan instalasi beberapa library Python yang dibutuhkan untuk proses Web Scraping. Library yang digunakan yaitu <code class="docutils literal notranslate"><span class="pre">requests</span></code> untuk mengambil halaman web, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> untuk membaca struktur HTML, <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> untuk mengambil isi utama artikel, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk mengolah data, <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> untuk menyimpan data ke dalam file Excel, dan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> untuk menampilkan progress proses scraping.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Jika belum install library, jalankan sekali saja</span>
@@ -428,391 +421,33 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: requests in /home/codespace/.local/lib/python3.14/site-packages (2.34.2)
 Requirement already satisfied: beautifulsoup4 in /home/codespace/.local/lib/python3.14/site-packages (4.15.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting trafilatura
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading trafilatura-2.2.0-py3-none-any.whl.metadata (13 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pandas
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pandas-3.0.5-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openpyxl
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tqdm
-  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (3.5.1)
+Requirement already satisfied: trafilatura in /usr/local/python/3.14.2/lib/python3.14/site-packages (2.2.0)
+Requirement already satisfied: pandas in /usr/local/python/3.14.2/lib/python3.14/site-packages (3.0.5)
+Requirement already satisfied: openpyxl in /usr/local/python/3.14.2/lib/python3.14/site-packages (3.1.5)
+Requirement already satisfied: tqdm in /usr/local/python/3.14.2/lib/python3.14/site-packages (4.70.1)
+Requirement already satisfied: charset_normalizer&lt;4,&gt;=2 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (3.5.1)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (3.19)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.26 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (2.7.0)
 Requirement already satisfied: certifi&gt;=2023.5.7 in /home/codespace/.local/lib/python3.14/site-packages (from requests) (2026.7.22)
 Requirement already satisfied: soupsieve&gt;=1.6.1 in /home/codespace/.local/lib/python3.14/site-packages (from beautifulsoup4) (2.9.2)
 Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/codespace/.local/lib/python3.14/site-packages (from beautifulsoup4) (4.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting courlan&gt;=1.4.0 (from trafilatura)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading courlan-1.4.0-py3-none-any.whl.metadata (18 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting htmldate&gt;=1.10.0 (from trafilatura)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading htmldate-1.10.0-py3-none-any.whl.metadata (9.8 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting justext&gt;=3.0.2 (from trafilatura)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading justext-3.0.2-py2.py3-none-any.whl.metadata (7.3 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lxml&gt;=6.1.1 (from trafilatura)
-  Downloading lxml-6.1.3-cp314-cp314-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy&gt;=2.3.3 (from pandas)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Requirement already satisfied: courlan&gt;=1.4.0 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from trafilatura) (1.4.0)
+Requirement already satisfied: htmldate&gt;=1.10.0 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from trafilatura) (1.10.0)
+Requirement already satisfied: justext&gt;=3.0.2 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from trafilatura) (3.0.2)
+Requirement already satisfied: lxml&gt;=6.1.1 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from trafilatura) (6.1.3)
+Requirement already satisfied: numpy&gt;=2.3.3 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from pandas) (2.5.3)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in /home/codespace/.local/lib/python3.14/site-packages (from pandas) (2.9.0.post0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting et-xmlfile (from openpyxl)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: et-xmlfile in /usr/local/python/3.14.2/lib/python3.14/site-packages (from openpyxl) (2.0.0)
 Requirement already satisfied: babel&gt;=2.16.0 in /home/codespace/.local/lib/python3.14/site-packages (from courlan&gt;=1.4.0-&gt;trafilatura) (2.18.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tld&gt;=0.13 (from courlan&gt;=1.4.0-&gt;trafilatura)
-  Downloading tld-0.13.2-py2.py3-none-any.whl.metadata (11 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting dateparser&gt;=1.1.2 (from htmldate&gt;=1.10.0-&gt;trafilatura)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading dateparser-1.4.3-py3-none-any.whl.metadata (25 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pytz&gt;=2024.2 (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura)
-  Downloading pytz-2026.3.post1-py2.py3-none-any.whl.metadata (22 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting regex&gt;=2024.9.11 (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading regex-2026.9.10-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tzlocal&gt;=0.2 (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura)
-  Downloading tzlocal-5.4.4-py3-none-any.whl.metadata (7.7 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lxml_html_clean (from lxml[html_clean]&gt;=4.4.2-&gt;justext&gt;=3.0.2-&gt;trafilatura)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading lxml_html_clean-0.4.5-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: tld&gt;=0.13 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from courlan&gt;=1.4.0-&gt;trafilatura) (0.13.2)
+Requirement already satisfied: dateparser&gt;=1.1.2 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from htmldate&gt;=1.10.0-&gt;trafilatura) (1.4.3)
+Requirement already satisfied: pytz&gt;=2024.2 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura) (2026.3.post1)
+Requirement already satisfied: regex&gt;=2024.9.11 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura) (2026.9.10)
+Requirement already satisfied: tzlocal&gt;=0.2 in /usr/local/python/3.14.2/lib/python3.14/site-packages (from dateparser&gt;=1.1.2-&gt;htmldate&gt;=1.10.0-&gt;trafilatura) (5.4.4)
+Requirement already satisfied: lxml_html_clean in /usr/local/python/3.14.2/lib/python3.14/site-packages (from lxml[html_clean]&gt;=4.4.2-&gt;justext&gt;=3.0.2-&gt;trafilatura) (0.4.5)
 Requirement already satisfied: six&gt;=1.5 in /home/codespace/.local/lib/python3.14/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading trafilatura-2.2.0-py3-none-any.whl (151 kB)
-Downloading pandas-3.0.5-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (11.0 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/11.0 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺</span> <span class=" -Color -Color-Green">10.7/11.0 MB</span> <span class=" -Color -Color-Red">200.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11.0/11.0 MB</span> <span class=" -Color -Color-Red">41.4 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
-Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
-Downloading courlan-1.4.0-py3-none-any.whl (34 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading htmldate-1.10.0-py3-none-any.whl (31 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading dateparser-1.4.3-py3-none-any.whl (322 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading justext-3.0.2-py2.py3-none-any.whl (837 kB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/837.9 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">837.9/837.9 kB</span> <span class=" -Color -Color-Red">26.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading lxml-6.1.3-cp314-cp314-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/5.2 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">5.2/5.2 MB</span> <span class=" -Color -Color-Red">31.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading numpy-2.5.3-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/16.7 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">16.5/16.7 MB</span> <span class=" -Color -Color-Red">276.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">16.5/16.7 MB</span> <span class=" -Color -Color-Red">276.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16.7/16.7 MB</span> <span class=" -Color -Color-Red">36.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading regex-2026.9.10-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (803 kB)
-?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/803.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">803.7/803.7 kB</span> <span class=" -Color -Color-Red">22.0 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25hDownloading tld-0.13.2-py2.py3-none-any.whl (296 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading tzlocal-5.4.4-py3-none-any.whl (18 kB)
-Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
-Downloading lxml_html_clean-0.4.5-py3-none-any.whl (14 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pytz, tzlocal, tqdm, tld, regex, numpy, lxml, et-xmlfile, pandas, openpyxl, lxml_html_clean, dateparser, courlan, htmldate, justext, trafilatura
-?25l
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 2/16</span> [tqdm]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 4/16</span> [regex]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 5/16</span> [numpy]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 6/16</span> [lxml]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 8/16</span> [pandas]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/16</span> [openpyxl]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green"> 9/16</span> [openpyxl]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11/16</span> [dateparser]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">11/16</span> [dateparser]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<span class=" -Color -Color-C237">╺━━━━━━━━━</span> <span class=" -Color -Color-Green">12/16</span> [courlan]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸<span class=" -Color -Color-C237">━━</span> <span class=" -Color -Color-Green">15/16</span> [trafilatura]
-   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">16/16</span> [trafilatura]
-?25h
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed courlan-1.4.0 dateparser-1.4.3 et-xmlfile-2.0.0 htmldate-1.10.0 justext-3.0.2 lxml-6.1.3 lxml_html_clean-0.4.5 numpy-2.5.3 openpyxl-3.1.5 pandas-3.0.5 pytz-2026.3.post1 regex-2026.9.10 tld-0.13.2 tqdm-4.70.1 trafilatura-2.2.0 tzlocal-5.4.4
 </pre></div>
 </div>
 </div>
@@ -1025,38 +660,38 @@ Downloading lxml_html_clean-0.4.5-py3-none-any.whl (14 kB)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 57
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 59
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 77
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 79
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 5
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 97
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 99
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 6
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 117
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 118
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 7
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 137
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 136
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 8
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 157
-Total kandidat Sport: 157
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 156
+Total kandidat Sport: 156
 </pre></div>
 </div>
 </div>
@@ -1087,56 +722,50 @@ Total kandidat Sport: 157
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 1
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 19
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 20
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 2
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 36
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 40
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 3
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 55
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 59
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 4
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 75
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 79
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 5
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 93
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 97
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 6
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 108
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 114
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 7
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 126
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 134
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 8
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 146
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Membaca halaman 9
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 166
-Total kandidat Finance: 166
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah link: 154
+Total kandidat Finance: 154
 </pre></div>
 </div>
 </div>
@@ -1321,61 +950,58 @@ Total kandidat Finance: 166
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   0%|                                                                             | 0/157 [00:00&lt;?, ?it/s]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   0%|                                                                                                | 0/156 [00:00&lt;?, ?it/s]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   1%|▍                                                                    | 1/157 [00:01&lt;03:26,  1.32s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   1%|▌                                                                                       | 1/156 [00:02&lt;05:11,  2.01s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   1%|▉                                                                    | 2/157 [00:02&lt;03:31,  1.36s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   1%|█▏                                                                                      | 2/156 [00:03&lt;04:33,  1.77s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   2%|█▎                                                                   | 3/157 [00:04&lt;04:21,  1.70s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   2%|█▋                                                                                      | 3/156 [00:05&lt;04:28,  1.75s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   3%|█▊                                                                   | 4/157 [00:06&lt;04:13,  1.66s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   3%|██▎                                                                                     | 4/156 [00:07&lt;04:56,  1.95s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   3%|██▏                                                                  | 5/157 [00:08&lt;04:36,  1.82s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   3%|██▊                                                                                     | 5/156 [00:09&lt;05:02,  2.01s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   4%|██▋                                                                  | 6/157 [00:10&lt;04:38,  1.84s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   4%|███▍                                                                                    | 6/156 [00:11&lt;05:02,  2.02s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   4%|███                                                                  | 7/157 [00:11&lt;04:17,  1.72s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   4%|███▉                                                                                    | 7/156 [00:13&lt;04:38,  1.87s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   5%|███▌                                                                 | 8/157 [00:13&lt;04:10,  1.68s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   5%|████▌                                                                                   | 8/156 [00:14&lt;04:11,  1.70s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   6%|███▉                                                                 | 9/157 [00:15&lt;04:31,  1.83s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   6%|█████                                                                                   | 9/156 [00:16&lt;03:54,  1.59s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   6%|████▎                                                               | 10/157 [00:16&lt;04:03,  1.66s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   6%|█████▌                                                                                 | 10/156 [00:18&lt;04:18,  1.77s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   7%|████▊                                                               | 11/157 [00:18&lt;03:51,  1.59s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   7%|██████▏                                                                                | 11/156 [00:20&lt;04:35,  1.90s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   8%|█████▏                                                              | 12/157 [00:20&lt;04:11,  1.74s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   8%|██████▋                                                                                | 12/156 [00:21&lt;04:13,  1.76s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   8%|█████▋                                                              | 13/157 [00:22&lt;04:14,  1.77s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   8%|███████▎                                                                               | 13/156 [00:23&lt;03:58,  1.67s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   9%|██████                                                              | 14/157 [00:24&lt;04:26,  1.87s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:   9%|███████▊                                                                               | 14/156 [00:25&lt;04:10,  1.77s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  10%|██████▍                                                             | 15/157 [00:26&lt;04:29,  1.90s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  10%|████████▎                                                                              | 15/156 [00:26&lt;04:07,  1.75s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  10%|██████▉                                                             | 16/157 [00:28&lt;04:22,  1.86s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  10%|████████▉                                                                              | 16/156 [00:28&lt;04:16,  1.83s/it]
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  11%|███████▎                                                            | 17/157 [00:29&lt;03:59,  1.71s/it]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  11%|███████▎                                                            | 17/157 [00:29&lt;04:06,  1.76s/it]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scraping sport:  10%|████████▉                                                                              | 16/156 [00:29&lt;04:21,  1.87s/it]
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -1719,9 +1345,7 @@ Name: count, dtype: int64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Tugas 1 – Web Scraping Berita Detik.com untuk Pengumpulan Dataset Kategori Sport dan Finance</strong></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-library"><strong>Instalasi Library</strong></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-pertama-dilakukan-instalasi-beberapa-library-python-yang-dibutuhkan-untuk-proses-web-scraping-library-yang-digunakan-yaitu-requests-untuk-mengambil-halaman-web-beautifulsoup4-untuk-membaca-struktur-html-trafilatura-untuk-mengambil-isi-utama-artikel-pandas-untuk-mengolah-data-openpyxl-untuk-menyimpan-data-ke-dalam-file-excel-dan-tqdm-untuk-menampilkan-progress-proses-scraping">Pada tahap pertama dilakukan instalasi beberapa library Python yang dibutuhkan untuk proses Web Scraping. Library yang digunakan yaitu <code class="docutils literal notranslate"><span class="pre">requests</span></code> untuk mengambil halaman web, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code> untuk membaca struktur HTML, <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> untuk mengambil isi utama artikel, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk mengolah data, <code class="docutils literal notranslate"><span class="pre">openpyxl</span></code> untuk menyimpan data ke dalam file Excel, dan <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> untuk menampilkan progress proses scraping.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalasi-library"><strong>Instalasi Library</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library-dan-konfigurasi"><strong>Import Library dan Konfigurasi</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-dilakukan-import-library-yang-akan-digunakan-dalam-proses-web-scraping-library-re-digunakan-untuk-melakukan-manipulasi-teks-time-dan-random-digunakan-untuk-memberikan-jeda-secara-acak-selama-proses-scraping-sedangkan-requests-digunakan-untuk-mengambil-halaman-web-library-pandas-digunakan-untuk-mengolah-data-dan-trafilatura-digunakan-untuk-mengambil-isi-utama-artikel-selain-itu-beautifulsoup-digunakan-untuk-membaca-struktur-html-sedangkan-beberapa-fungsi-dari-urllib-parse-digunakan-untuk-mengolah-url-library-tqdm-digunakan-untuk-menampilkan-progress-proses-scraping-pada-bagian-konfigurasi-juga-dibuat-user-agent-dan-requests-session-yang-digunakan-untuk-mengatur-request-ke-halaman-web-variabel-kategori-digunakan-untuk-menyimpan-alamat-halaman-indeks-dan-domain-berita-yang-akan-digunakan-yaitu-kategori-sport-dan-finance">Pada tahap ini dilakukan import library yang akan digunakan dalam proses Web Scraping. Library <code class="docutils literal notranslate"><span class="pre">re</span></code> digunakan untuk melakukan manipulasi teks, <code class="docutils literal notranslate"><span class="pre">time</span></code> dan <code class="docutils literal notranslate"><span class="pre">random</span></code> digunakan untuk memberikan jeda secara acak selama proses scraping, sedangkan <code class="docutils literal notranslate"><span class="pre">requests</span></code> digunakan untuk mengambil halaman web. Library <code class="docutils literal notranslate"><span class="pre">pandas</span></code> digunakan untuk mengolah data dan <code class="docutils literal notranslate"><span class="pre">trafilatura</span></code> digunakan untuk mengambil isi utama artikel. Selain itu, <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> digunakan untuk membaca struktur HTML, sedangkan beberapa fungsi dari <code class="docutils literal notranslate"><span class="pre">urllib.parse</span></code> digunakan untuk mengolah URL. Library <code class="docutils literal notranslate"><span class="pre">tqdm</span></code> digunakan untuk menampilkan progress proses scraping. Pada bagian konfigurasi juga dibuat <code class="docutils literal notranslate"><span class="pre">User-Agent</span></code> dan <code class="docutils literal notranslate"><span class="pre">requests.Session()</span></code> yang digunakan untuk mengatur request ke halaman web. Variabel <code class="docutils literal notranslate"><span class="pre">kategori</span></code> digunakan untuk menyimpan alamat halaman indeks dan domain berita yang akan digunakan, yaitu kategori sport dan finance.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-url"><strong>Normalisasi URL</strong></a></li>
@@ -1743,9 +1367,6 @@ Name: count, dtype: int64
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-data-berita"><strong>Menggabungkan Data Berita</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pada-tahap-ini-data-berita-dari-kategori-sport-dan-finance-digabungkan-menjadi-satu-data-menggunakan-operator-data-dari-kedua-kategori-yang-sebelumnya-disimpan-dalam-variabel-berbeda-digabungkan-ke-dalam-variabel-data-semua-dengan-demikian-seluruh-hasil-scraping-dari-kedua-kategori-dapat-diproses-sebagai-satu-dataset">Pada tahap ini data berita dari kategori <code class="docutils literal notranslate"><span class="pre">sport</span></code> dan <code class="docutils literal notranslate"><span class="pre">finance</span></code> digabungkan menjadi satu data menggunakan operator <code class="docutils literal notranslate"><span class="pre">+</span></code>. Data dari kedua kategori yang sebelumnya disimpan dalam variabel berbeda digabungkan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">data_semua</span></code>. Dengan demikian, seluruh hasil scraping dari kedua kategori dapat diproses sebagai satu dataset.</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
